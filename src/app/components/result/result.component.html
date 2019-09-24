@@ -1,0 +1,19 @@
+
+
+<div style="display: block; width: 300px; height: 500px; margin-left: 30%">
+    <h3 style="text-align:center">Mix energetique de votre fournisseur</h3>
+  <canvas baseChart
+              [data]="demodoughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+              class="graph"></canvas>
+    <rg-gauge-chart
+              [canvasWidth]="canvasWidth"
+              [needleValue]="consommation_client_F"
+              [centralLabel]="centralLabel"
+              [options]="options"
+              [name]="name"
+              [bottomLabel]="bottomLabel"></rg-gauge-chart>
+</div>

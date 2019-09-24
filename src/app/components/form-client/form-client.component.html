@@ -1,0 +1,88 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+   media="all" />
+
+   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="SearchAdress"><i class="fa fa-bolt"></i> ElectroTracker</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="fournisseurs-list">Fournisseurs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="offres-list">Offres</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="clients-list">Clients</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+<div class="container">
+    
+    <div class="panel-heading">
+            <div style ="text-align:center"><b><h3>Ajoutez un nouveau client</h3></b></div>
+    </div>
+
+    <form action="/action_page.php"> 
+
+        <div class="form-group">
+            <label for="offre"> Selectionnez une offre :</label>
+            <select class="form-control" [(ngModel)]="clientprog.offre" name="offre">
+                    <option *ngFor="let o of offre" [ngValue]="o">{{ o.nom_Offre }}</option>
+            </select>
+    </div>
+
+        <div class="form-group">
+            <label for="nom">Nom du client: </label>
+            <input type="text" class="form-control" [(ngModel)]="clientprog.nom_Client" name="nom_Client" />
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Prenom du client: </label>
+            <input type="text" class="form-control" [(ngModel)]="clientprog.prenom_Client"  name="prenom_Client"/>
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Consomation électrique </label>
+            <input  type="text" class="form-control" [(ngModel)]="clientprog.consoElectrique" name="identifiant" />
+        </div>
+<br/>
+        <h4> Adresse </h4>
+        <div class="form-group">
+            <label for="nom">Rue :</label>
+            <input  type="text" class="form-control" [(ngModel)]="clientprog.adresse.rue" name="rue" />
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Ville :</label>
+            <input  type="text" class="form-control" [(ngModel)]="clientprog.adresse.ville" name="ville" />
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Code postal :</label>
+            <input  type="text" class="form-control" [(ngModel)]="clientprog.adresse.code_postal" name="code postal" />
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Pays : </label>
+            <input  type="text" class="form-control" [(ngModel)]="clientprog.adresse.pays" name="pays" />
+        </div>
+       
+        <div class="form-group">
+            <input type="button" class="btn btn-dark" value="Valider" (click)="addClientClicked()"/>
+        </div>
+
+    </form>
+
+</div>

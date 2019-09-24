@@ -1,0 +1,54 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+   media="all" />
+
+   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="SearchAdress"><i class="fa fa-bolt"></i> ElectroTracker</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="fournisseurs-list">Fournisseurs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="offres-list">Offres</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="clients-list">Clients</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+<div class="row" style="margin-top: 5%; margin-left: 2%">
+    <div style="display: block; width: 900px" class="col-sm-8">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker 
+            *ngFor="let eo of eoliens; let i = index"
+            [latitude]="eo.latitude"
+            [longitude]="eo.longitude"
+            [label]="eo.label"
+        ></agm-marker>
+        <agm-circle
+          [latitude]="lat" 
+          [longitude]="lng"
+          [radius]="5000"
+          [fillColor]="'blue'" 
+        ></agm-circle>
+      </agm-map>
+    </div> 
+    <div class="col-sm-4">
+      <app-result></app-result>
+    </div>
+    <div class="col-sm-4">
+        <app-envoie-resultats></app-envoie-resultats>
+      </div>
+</div>

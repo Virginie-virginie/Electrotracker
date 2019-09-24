@@ -1,0 +1,87 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+   media="all" />
+
+   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="SearchAdress"><i class="fa fa-bolt"></i> ElectroTracker</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="fournisseurs-list">Fournisseurs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="offres-list">Offres</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="clients-list">Clients</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+      <div class="container">
+    
+            <div class="panel-heading">
+                    <div style ="text-align:center"><b><h3>Ajoutez une nouvelle offre</h3></b></div>
+            </div>
+    
+        <form action="/action_page.php"> 
+    
+            <div class="form-group">
+                <label for="nom"> Nom de l'offre: </label>
+                <input type="text" class="form-control" [(ngModel)]="offreprog.nom_Offre" name="nom_fournisseur" />
+            </div>
+
+            <div class="form-group">
+                    <label for="origine"> Selectionnez un fournisseur :</label>
+                    <select class="form-control" [(ngModel)]="offreprog.fournisseur" name="fournisseur">
+                            <option *ngFor="let four of fournisseur" [ngValue]="four">{{ four.nom_fournisseur }}</option>
+                    </select>
+            </div>
+
+            <div class = "form-group">
+                    <label><h4> Tracez l'origine:  </h4></label>
+                    <div *ngFor="let origine of offreprog.origines; let i = index">
+
+                        <label for="nucleaire"> Traçabilité de l'énergie nucléaire : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].nucleaire" name = "nucle" />
+                        
+                        <label for="hydraulique"> Traçabilité de l'énergie hydraulique : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].hydraulique" name = "hydrau"/>
+                    
+                        <label for="gaz"> Traçabilité de l'énergie gaz :  </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].gaz" name = "gaz"/>
+
+                        <label for="eolien"> Traçabilité de l'énergie eolien : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].eolien" name = "eol"/>
+
+                        <label for="solaire"> Traçabilité de l'énergie solaire : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].solaire" name = "sol"/>
+
+                        <label for="biomasse"> Traçabilité de l'énergie biomasse : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].biomasse" name = "bio"/>
+
+                        <label for="nom"> Traçabilité de l'énergie charbon : </label>
+                        <input type = "text" class = "form-control" [(ngModel)]="offreprog.origines[i].charbon" name = "char"/>
+                        <a (click)="removeOrigineAtIndex(i)">Remove</a>
+                    </div>
+                    <div class = "roll">
+                            <button type="button" class="btn btn-info" (click)="addOriginePressed()"><i class="fa fa-plus"></i></button>
+                    </div>
+                    
+                </div>
+            
+            <div class="input-group">
+                <input type="button" class="btn btn-dark" value="Valider" (click)="addOffreClicked()"/>
+              </div>
+    
+        </form>
+    
+    </div>

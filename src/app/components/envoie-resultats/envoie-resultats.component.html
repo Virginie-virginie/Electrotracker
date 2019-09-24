@@ -1,0 +1,12 @@
+<div class="panel-heading">
+        <div style ="text-align:center"><b><h3>Recevez vos resultats par mail!</h3></b></div>
+</div>
+
+<div style ="text-align:center">
+        <input id="mail" [(ngModel)]="mail.address" type="textbox" class="form-control" placeholder="Entrez votre adresse mail..." 
+        aria-label="Entrez votre adresse mail..." aria-describedby="basic-addon">
+
+        <input type="button" class="btn btn-dark" value="Reçevoir mes resultats" (click)="envoieMailClicked()"/>
+
+        <notifier-container></notifier-container>
+</div>

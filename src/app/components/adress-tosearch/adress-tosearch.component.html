@@ -1,0 +1,53 @@
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+media="all" />
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+     <!-- Brand -->
+     <a class="navbar-brand" href="index"><i class="fa fa-bolt"></i> ElectroTracker</a>
+   
+     <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+   
+     <!-- Navbar links -->
+     <div class="collapse navbar-collapse" id="collapsibleNavbar">
+       <ul class="navbar-nav">
+         <li class="nav-item">
+           <a class="nav-link" href="fournisseurs-list">Fournisseurs</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="offres-list">Offres</a>
+         </li>
+         <li class="nav-item">
+                 <a class="nav-link" href="clients-list">Clients</a>
+         </li>
+       </ul>
+     </div>
+ </nav>
+ 
+ <div class="masthead">
+  <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Traçez votre électricité!</h1>
+            <p class="mb-5">Nous travaillons pour vous donner la visibilité de l'origine de votre électricité. 
+            </p><p>Vous devez seulement
+              <strong>entrer votre adresse!</strong></p>
+            <div id="floating-panel" class="input-group input-group-newsletter">
+              <input id="address" [(ngModel)]="address" type="textbox" class="form-control" placeholder="Entrez votre adresse..." aria-label="Entrez votre adresse..." aria-describedby="basic-addon">
+              <div class="input-group-append">
+                <br><br/>
+                <input id="submit" class="btn btn-secondary" type="button" value="Montre moi!" (click)="searchCoordinates()">
+              </div>
+            </div>
+			
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
